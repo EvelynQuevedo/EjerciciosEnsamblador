@@ -9,11 +9,11 @@ section .bss
 section .text
 	global _start
 _start:
-	mov eax, 4 ; llama al sistema (sys_write)
-	mov ebx, 1	;stdout
-	mov ecx, userMsg ;msg pantalla
-	mov edx, lenUserMsg ;longitud del mensaje
-	int 0x80	;lamada al sistema de interrucciones
+	mov eax, 4
+	mov ebx, 1	
+	mov ecx, userMsg 
+	mov edx, lenUserMsg 
+	int 80h	
 	
 
 	mov eax, 0
@@ -27,11 +27,11 @@ loop_for:
 
 	mov [num], eax
 
-	mov eax, 4 ; llama al sistema (sys_write)
-	mov ebx, 1	;stdout
-	mov ecx, num ;msg pantalla
-	mov edx, 2 ;longitud del mensaje
+	mov eax, 4 
+	mov ebx, 1	
+	mov ecx, num 
+	mov edx, 2 
 	int 0x80
 
-	mov eax, 1 ;(system("pause"),exit, sys_exit)
-	int 0x80
+	mov eax, 1
+	int 80h
